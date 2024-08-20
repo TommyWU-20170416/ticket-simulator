@@ -8,12 +8,21 @@
 </template>
 
 <script>
+import { onMounted } from 'vue'
 import Header from '@/components/Header.vue'
+import { useStationStore } from '@/stores/station'
 
 export default {
   name: 'App',
   components: {
-      AppHeader: Header
+    AppHeader: Header
+  },
+  setup() {
+    const stationStore = useStationStore()
+
+    onMounted(() => {
+      stationStore.fetchStations()
+    })
   }
 }
 </script>
