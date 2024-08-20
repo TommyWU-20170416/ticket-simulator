@@ -2,22 +2,18 @@
 
 <template>
   <div id="app">
-    <header>
-      <h1>搶票網站</h1>
-    </header>
-    <main>
-      <TicketList />
-    </main>
+    <AppHeader />
+    <router-view />
   </div>
 </template>
 
 <script>
-import TicketList from './components/TicketList.vue'
+import Header from '@/components/Header.vue'
 
 export default {
   name: 'App',
   components: {
-    TicketList
+      AppHeader: Header
   }
 }
 </script>
