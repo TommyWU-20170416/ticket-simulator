@@ -24,7 +24,6 @@ CREATE TABLE IF NOT EXISTS public.station
 (
     station_id smallserial NOT NULL,
     station_name character varying(30) NOT NULL,
-    region_id smallint NOT NULL,
     station_index smallint NOT NULL,
     PRIMARY KEY (station_id)
 );
@@ -37,8 +36,8 @@ CREATE TABLE IF NOT EXISTS public.restaurant
     restaurant_id serial NOT NULL,
     restaurant_name character varying(50) NOT NULL,
     restaurant_image_url character varying(256),
-    region_id smallint NOT NULL,
-    restaurant_image_blob oid,
+    station_id smallint NOT NULL,
+    restaurant_image_blob bytea,
     PRIMARY KEY (restaurant_id)
 );
 
@@ -61,8 +60,8 @@ CREATE TABLE IF NOT EXISTS public.attraction
     attraction_id serial NOT NULL,
     attraction_name character varying(50) NOT NULL,
     attraction_image_url character varying(256),
-    region_id smallint NOT NULL,
-    attraction_image oid,
+    station_id smallint NOT NULL,
+    attraction_image bytea,
     PRIMARY KEY (attraction_id)
 );
 
@@ -79,16 +78,6 @@ CREATE TABLE IF NOT EXISTS public.station_attraction
 
 COMMENT ON TABLE public.station_attraction
     IS 'To connect the station and attraction';
-
-CREATE TABLE IF NOT EXISTS public.region
-(
-    region_id smallserial NOT NULL,
-    region_name character varying(30) NOT NULL,
-    PRIMARY KEY (region_id)
-);
-
-COMMENT ON TABLE public.region
-    IS 'To record region';
 
 CREATE TABLE IF NOT EXISTS public."user"
 (
@@ -136,7 +125,7 @@ CREATE TABLE IF NOT EXISTS public.schedule
     schedule_arrival_time timestamp without time zone NOT NULL,
     schedule_departure_station_id smallint NOT NULL,
     schedule_arrival_station_id smallint NOT NULL,
-    PRIMARY KEY (schedule_id)
+    PRIMARY KEY (scedule_id)
 );
 
 COMMENT ON TABLE public.schedule
