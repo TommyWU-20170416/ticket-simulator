@@ -8,10 +8,10 @@
         <!--  lookup parent from repository  -->
     </parent>
     <groupId>com.wsi</groupId>
-    <artifactId>snap-up-the-tickets</artifactId>
+    <artifactId>ticket-simulator-services</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>snap-up-the-tickets</name>
-    <description>snap-up-the-tickets</description>
+    <name>ticket-simulator-services</name>
+    <description>ticket-simulator-services</description>
     <url/>
     <licenses>
         <license/>
@@ -29,10 +29,6 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -54,10 +50,18 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security</groupId>-->
+<!--            <artifactId>spring-security-test</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
     </dependencies>
     <build>
         <plugins>
