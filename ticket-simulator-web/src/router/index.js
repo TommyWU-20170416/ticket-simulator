@@ -50,7 +50,8 @@ const router = createRouter({
       ]
     },
     { path: '/ticket', component: () => import('@/views/TicketView.vue') },
-    { path: '/travel', component: () => import('@/views/TravelView.vue') }
+    { path: '/travel', component: () => import('@/views/TravelView.vue') },
+    {path: '/aa', component: () => import('@/views/GrpcTestView.vue') }
   ]
 })
 

@@ -43,7 +43,7 @@
 <script>
 import { ref } from 'vue'
 import { useStationStore } from '@/stores/station'
-import api from '@/api' // 引入共用的 Axios 實例
+import api from '@/api'
 
 export default {
   name: 'TravelView',
@@ -55,6 +55,7 @@ export default {
     const paginatedRestaurants = ref([])
     const paginatedAttractions = ref([])
 
+    // 因為抽成共用到 store.js 所以不用再寫
     // const fetchStations = async () => {
     //   try {
     //     const response = await api.get('/stations')

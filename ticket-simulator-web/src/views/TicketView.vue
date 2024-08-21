@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>線上訂票</h1>
-    <form @submit.prevent="searchTickets">
+    <!-- <form @submit.prevent="searchTickets">
       <div>
         <label for="username">使用者名稱:</label>
         <input type="text" id="username" v-model="username" required />
@@ -19,9 +19,9 @@
         <input type="number" id="ticketCount" v-model="ticketCount" required min="1" />
       </div>
       <button type="submit">查詢</button>
-    </form>
+    </form> -->
 
-    <div v-if="tickets.length > 0">
+    <div>
       <h2>查詢結果</h2>
       <table>
         <thead>
@@ -58,36 +58,31 @@ export default {
     const arrival = ref('')
     const ticketCount = ref(1)
     const tickets = ref([])
-
-    const searchTickets = () => {
-      // 模擬查詢結果
-      tickets.value = [
-        {
-          id: 1,
-          trainType: '高鐵123',
-          departureTime: '08:00',
-          arrivalTime: '10:00',
-          duration: '2小時',
-          price: '1000元'
-        },
-        {
-          id: 2,
-          trainType: '高鐵456',
-          departureTime: '09:00',
-          arrivalTime: '11:00',
-          duration: '2小時',
-          price: '1000元'
-        }
-      ]
-    }
+    tickets.value = [
+      {
+        id: 1,
+        trainType: '高鐵123',
+        departureTime: '08:00',
+        arrivalTime: '10:00',
+        duration: '2小時',
+        price: '1000元'
+      },
+      {
+        id: 2,
+        trainType: '高鐵456',
+        departureTime: '09:00',
+        arrivalTime: '11:00',
+        duration: '2小時',
+        price: '1000元'
+      }
+    ]
 
     return {
       username,
       departure,
       arrival,
       ticketCount,
-      tickets,
-      searchTickets
+      tickets
     }
   }
 }
