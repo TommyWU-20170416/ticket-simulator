@@ -96,6 +96,7 @@ public class TicketServiceImpl implements TicketService {
 
                 return new BuyTicketResponse(schedule.getScheduleTicketLess());
             }else{
+                System.out.println("Another process is buying tickets, please try again.");
                 throw new ResponseStatusException(HttpStatus.LOCKED, "Another process is buying tickets, please try again.");
             }
         } finally {

@@ -1,11 +1,15 @@
 package com.wsi.ticketservices.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wsi.ticketservices.dto.BuyTicketResponse;
 import com.wsi.ticketservices.dto.TicketPurchaseRequest;
 import com.wsi.ticketservices.model.Schedule;
+import com.wsi.ticketservices.producer.KafkaProducerService;
 import com.wsi.ticketservices.repository.ScheduleRepository;
 import com.wsi.ticketservices.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +27,9 @@ public class TicketController {
 
     @Autowired
     private TicketService ticketService;
+
+    @Autowired
+    private KafkaProducerService kafkaProducerService;
 
     @GetMapping("/schedule")
     public ResponseEntity<List<Schedule>> getSchedules() {
@@ -91,5 +98,21 @@ public class TicketController {
         BuyTicketResponse buyTicketResponse = ticketService.buyTicket(ticketPurchaseRequest);
 
         return ResponseEntity.ok(buyTicketResponse);
+    }
+
+    /**
+     * 使用 kafka 當作緩衝層
+     * 將 ticket 資訊寫入 kafka，並由另一個服務監聽 kafka，進行購票操作。
+     */
+    @Value("${kafka.topic.ticket_purchase.name}")
+    private String ticketPurchaseTopic;
+
+    @PostMapping("/ticketswithkafkaandredisandlock")
+    public ResponseEntity<BuyTicketResponse> ticketWithKafkaAndRedisAndLock(@RequestBody TicketPurchaseRequest ticketPurchaseRequest) throws JsonProcessingException {
+        // Convert request to json and store in kafka
+        String message = new ObjectMapper().writeValueAsString(ticketPurchaseRequest);
+        kafkaProducerService.sendMessage(ticketPurchaseTopic, message);
+
+        return ResponseEntity.accepted().build(); // 之後要改成等 kafka 做完回傳給前端
     }
 }
