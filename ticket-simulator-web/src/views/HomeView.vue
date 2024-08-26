@@ -2,8 +2,8 @@
   <div class="container">
     <h1>火車搶票系統</h1>
     <div class="buttons">
-      <button @click="navigateTo('/customer')">旅客服務</button>
-      <button @click="navigateTo('/member')">會員服務</button>
+      <button >旅客服務(尚未開放進請期待)</button>
+      <button >會員服務(尚未開放進請期待)</button>
       <button @click="navigateTo('/ticket')">線上訂票</button>
       <button @click="navigateTo('/travel')">鐵道旅遊</button>
     </div>

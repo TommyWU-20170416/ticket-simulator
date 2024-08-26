@@ -2,10 +2,10 @@
   <header>
     <nav>
       <router-link to="/home">首頁</router-link>
-      <router-link to="/customer">旅客服務</router-link>
-      <router-link to="/member">會員服務</router-link>
+      <router-link >旅客服務(尚未開放進請期待)</router-link>
+      <router-link >會員服務(尚未開放進請期待)</router-link>
       <router-link to="/ticket">線上訂票</router-link>
-      <router-link to="/travel">鐵道旅遊</router-link>
+      <router-link to="/travel">鐵道旅遊</router-link>      
     </nav>
   </header>
 </template>
