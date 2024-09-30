@@ -12,6 +12,7 @@
     <modules>
         <module>ticket-services</module>
         <module>travel-services</module>
+        <module>wallet-services</module>
     </modules>
 
     <!-- 這邊設定的 properties 可以由子模組使用 -->
