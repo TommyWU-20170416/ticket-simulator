@@ -146,6 +146,7 @@ CREATE TABLE IF NOT EXISTS public.wallet
     wallet_id serial NOT NULL,
     user_id integer NOT NULL,
     wallet_amount integer NOT NULL,
+    version integer NOT NULL DEFAULT 0,
     PRIMARY KEY (wallet_id)
 );
 
@@ -158,9 +159,27 @@ CREATE TABLE IF NOT EXISTS public.wallet_log
     wallet_id integer NOT NULL,
     wallet_transaction smallint NOT NULL,
     amount_transaction integer NOT NULL,
+    created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
 
 COMMENT ON TABLE public.wallet_log
     IS '紀錄 wallet 的 log';
+
+CREATE TABLE IF NOT EXISTS public.installment
+(
+    installment_id serial,
+    user_id integer NOT NULL,
+    next_amount integer NOT NULL,
+    total_amount integer NOT NULL,
+    due_date timestamp with time zone NOT NULL,
+    installment_number smallint NOT NULL,
+    installment_total_number smallint NOT NULL,
+    status smallint NOT NULL,
+    created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (due_date)
+);
+
+COMMENT ON TABLE public.installment
+    IS '紀錄分期付款資訊';
 END;
