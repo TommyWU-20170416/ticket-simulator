@@ -1,0 +1,4 @@
+{
+    "walletId": 3,
+    "amount": 1
+}
