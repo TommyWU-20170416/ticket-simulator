@@ -1,14 +1,13 @@
 package com.wsi.walletservices.model;
 
-public enum TransactionType {
-    DEPOSIT(1),
-    WITHDRAW(2),
-    TRANSFER(3),
-    INSTALLMENT(4);
+public enum InstallmentStatusType {
+    PENDING(0),
+    PAID(1),
+    LATE(2);
 
     private final int value;
 
-    TransactionType(int value) {
+    InstallmentStatusType(int value) {
         this.value = value;
     }
 

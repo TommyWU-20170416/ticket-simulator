@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "wallet_log")
+@Table(name = "wallet_log", schema = "public")
 @Data
 public class WalletLog {
     @Id
