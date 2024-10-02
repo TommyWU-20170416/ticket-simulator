@@ -19,4 +19,7 @@ public class Wallet {
 
     @Column(name = "wallet_amount", nullable = false)
     private Integer walletAmount;
+
+    @Version
+    private Integer version;
 }
