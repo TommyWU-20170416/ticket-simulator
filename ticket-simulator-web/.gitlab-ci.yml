@@ -42,6 +42,7 @@ run_tests:
   image: node:20
   script:
     - cd ticket-simulator-web
+    - npm install -g npm@<8.19.1>
     - npm ci
     - npm run test:unit
   # dependencies:  # 使這個作業依賴於 install_dependencies 作業 但這樣寫沒有正常取到 install 的 node_modules
