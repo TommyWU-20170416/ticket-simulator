@@ -1,13 +1,13 @@
 stages:
   - install
   - test
-  # - build
+  - build
   # - deploy
 
 # 定義變數
 variables:
-    NODE_ENV: "development"
-  # NODE_ENV: "production"
+    NODE_ENV: "development" # 只會包出 devDependencies
+  # NODE_ENV: "production" # 只會包出 dependencies
 
 # 快取依賴以加快構建速度 緩存的 node_modules 不完整
 # cache:
@@ -22,16 +22,13 @@ install_dependencies:
   script:
     - echo "=== 開始安裝依賴 ==="
     - cd ticket-simulator-web
-    - ls -al
-    - pwd
     - npm install -g npm@8.19.1
     - npm install
     - npm list --depth=0
-  artifacts:
+    - echo "=== 結束安裝依賴 ==="
+  artifacts: # 保留指定的檔案或目錄，提供給其他 job 使用
     paths:
       - ticket-simulator-web/node_modules/
-      - ticket-simulator-web/package.json
-      - ticket-simulator-web/package-lock.json
 
   # cache:
   #   paths:
@@ -53,27 +50,26 @@ run_tests:
     - npm run test:unit
   dependencies:
     - install_dependencies
-  artifacts:
-    paths:
-      - ticket-simulator-web/package.json
-      - ticket-simulator-web/package-lock.json
   only:
     - main
     - merge_requests
 
 # 構建應用
-# build_frontend:
-  # stage: build
-  # image: node:20
-  # script:
-  #   - cd ticket-simulator-web
-  #   - npm run build
-  # artifacts:
-  #   paths:
-  #     - ticket-simulator-web/dist/
-  # only:
-  #   - main
-  #   - merge_requests
+build_frontend:
+  stage: build
+  image: node:20
+  script:
+    - cd ticket-simulator-web
+    - npm install -g npm@8.19.1
+    - npm run build
+  artifacts:
+    paths:
+      - ticket-simulator-web/dist/
+  dependencies:
+    - install_dependencies
+  only:
+    - main
+    - merge_requests
 
 # 部署應用
 # deploy_frontend:
