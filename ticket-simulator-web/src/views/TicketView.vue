@@ -128,7 +128,8 @@ export default {
     const buyTicket = async (schedule, index) => {
       loading.value = true
       try {
-        const response = await ticketServices.post('/ticketswithkafkaandredisandlock', {
+        const response = await ticketServices.post('/tickets', {        
+        // const response = await ticketServices.post('/ticketswithkafkaandredisandlock', {
           scheduleId: schedule.id,
           username: username.value
         })

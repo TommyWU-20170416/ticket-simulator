@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>鐵道旅遊</h1>
+    <h1>鐵道旅遊 - 使用 RESTFUL API</h1>
     <label for="station-select">選擇車站:</label>
     <select id="station-select" v-model="selectedStation">
       <option v-for="station in stations" :key="station.stationId" :value="station.stationId">
