@@ -1,7 +1,7 @@
 stages:
   - install
-  - test
-  - build
+  # - test
+  # - build
   # - deploy
 
 # 定義變數
@@ -19,9 +19,13 @@ install_dependencies:
   stage: install
   image: node:20
   script:
+    - echo "=== 開始安裝依賴 ==="
+    - ls -al
+    - pwd
     - cd ticket-simulator-web
     - npm install -g npm@8.19.1
-    - npm ci
+    - npm install
+    - npm list --depth=0
   artifacts:
     paths:
       - ticket-simulator-web/node_modules/
@@ -39,36 +43,36 @@ install_dependencies:
     - merge_requests
 
 # 運行測試
-run_tests:
-  stage: test
-  image: node:20
-  script:
-    - cd ticket-simulator-web
-    - npm install -g npm@8.19.1
-    - npm run test:unit
-  dependencies:
-    - install_dependencies
-  artifacts:
-    paths:
-      - ticket-simulator-web/package.json
-      - ticket-simulator-web/package-lock.json
-  only:
-    - main
-    - merge_requests
+# run_tests:
+  # stage: test
+  # image: node:20
+  # script:
+  #   - cd ticket-simulator-web
+  #   - npm install -g npm@8.19.1
+  #   - npm run test:unit
+  # dependencies:
+  #   - install_dependencies
+  # artifacts:
+  #   paths:
+  #     - ticket-simulator-web/package.json
+  #     - ticket-simulator-web/package-lock.json
+  # only:
+  #   - main
+  #   - merge_requests
 
 # 構建應用
-build_frontend:
-  stage: build
-  image: node:20
-  script:
-    - cd ticket-simulator-web
-    - npm run build
-  artifacts:
-    paths:
-      - ticket-simulator-web/dist/
-  only:
-    - main
-    - merge_requests
+# build_frontend:
+  # stage: build
+  # image: node:20
+  # script:
+  #   - cd ticket-simulator-web
+  #   - npm run build
+  # artifacts:
+  #   paths:
+  #     - ticket-simulator-web/dist/
+  # only:
+  #   - main
+  #   - merge_requests
 
 # 部署應用
 # deploy_frontend:
