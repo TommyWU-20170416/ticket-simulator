@@ -37,10 +37,11 @@ run_tests:
   image: node:20
   script:
     - cd ticket-simulator-web
+    - npm ci
     - ls node_modules/.bin  # 列出所有可執行文件以確認 vitest 是否存在
     - npm run test:unit
-  dependencies:  # 使這個作業依賴於 install_dependencies 作業
-    - install_dependencies
+  # dependencies:  # 使這個作業依賴於 install_dependencies 作業 但這樣寫沒有正常取到 install 的 node_modules
+  #   - install_dependencies
   only:
     - main
     - merge_requests
