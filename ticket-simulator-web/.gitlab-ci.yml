@@ -20,9 +20,9 @@ install_dependencies:
   image: node:20
   script:
     - echo "=== 開始安裝依賴 ==="
+    - cd ticket-simulator-web
     - ls -al
     - pwd
-    - cd ticket-simulator-web
     - npm install -g npm@8.19.1
     - npm install
     - npm list --depth=0
