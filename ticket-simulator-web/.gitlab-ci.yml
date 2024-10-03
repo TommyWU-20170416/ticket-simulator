@@ -17,7 +17,7 @@ cache:
 # 安裝依賴
 install_dependencies:
   stage: install
-  image: node:16
+  image: node:20
   script:
     - cd ticket-simulator-web
     - npm install
@@ -34,9 +34,10 @@ install_dependencies:
 # 運行測試
 run_tests:
   stage: test
-  image: node:16
+  image: node:20
   script:
     - cd ticket-simulator-web
+    - ls node_modules/.bin  # 列出所有可執行文件以確認 vitest 是否存在
     - npm run test:unit
   only:
     - main
@@ -45,7 +46,7 @@ run_tests:
 # 構建應用
 build_frontend:
   stage: build
-  image: node:16
+  image: node:20
   script:
     - cd ticket-simulator-web
     - npm run build
@@ -59,7 +60,7 @@ build_frontend:
 # 部署應用
 # deploy_frontend:
 #   stage: deploy
-#   image: node:16
+#   image: node:20
 #   script:
 #     - echo "開始部署前端應用"
 #     # 這裡根據你的部署方式進行配置，例如使用 rsync 或 scp 上傳到伺服器
