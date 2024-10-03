@@ -1,12 +1,13 @@
 stages:
   - install
-  # - test
+  - test
   # - build
   # - deploy
 
 # 定義變數
 variables:
-  NODE_ENV: "production"
+    NODE_ENV: "development"
+  # NODE_ENV: "production"
 
 # 快取依賴以加快構建速度 緩存的 node_modules 不完整
 # cache:
@@ -43,22 +44,22 @@ install_dependencies:
     - merge_requests
 
 # 運行測試
-# run_tests:
-  # stage: test
-  # image: node:20
-  # script:
-  #   - cd ticket-simulator-web
-  #   - npm install -g npm@8.19.1
-  #   - npm run test:unit
-  # dependencies:
-  #   - install_dependencies
-  # artifacts:
-  #   paths:
-  #     - ticket-simulator-web/package.json
-  #     - ticket-simulator-web/package-lock.json
-  # only:
-  #   - main
-  #   - merge_requests
+run_tests:
+  stage: test
+  image: node:20
+  script:
+    - cd ticket-simulator-web
+    - npm install -g npm@8.19.1
+    - npm run test:unit
+  dependencies:
+    - install_dependencies
+  artifacts:
+    paths:
+      - ticket-simulator-web/package.json
+      - ticket-simulator-web/package-lock.json
+  only:
+    - main
+    - merge_requests
 
 # 構建應用
 # build_frontend:
