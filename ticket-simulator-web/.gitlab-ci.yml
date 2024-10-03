@@ -8,11 +8,11 @@ stages:
 variables:
   NODE_ENV: "production"
 
-# 快取依賴以加快構建速度
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - ticket-simulator-web/node_modules/
+# 快取依賴以加快構建速度 緩存的 node_modules 不完整
+# cache:
+#   key: ${CI_COMMIT_REF_SLUG}
+#   paths:
+#     - ticket-simulator-web/node_modules/
 
 # 安裝依賴
 install_dependencies:
@@ -20,13 +20,18 @@ install_dependencies:
   image: node:20
   script:
     - cd ticket-simulator-web
-    - npm install
-  cache:
-    paths:
-      - ticket-simulator-web/node_modules/
+    - npm ci
   artifacts:
     paths:
-      - ticket-simulator-web/node_modules/
+      - package.json
+      - package-lock.json
+
+  # cache:
+  #   paths:
+  #     - ticket-simulator-web/node_modules/
+  # artifacts:
+  #   paths:
+  #     - ticket-simulator-web/node_modules/
   only:
     - main
     - merge_requests
@@ -38,10 +43,13 @@ run_tests:
   script:
     - cd ticket-simulator-web
     - npm ci
-    - ls node_modules/.bin  # 列出所有可執行文件以確認 vitest 是否存在
     - npm run test:unit
   # dependencies:  # 使這個作業依賴於 install_dependencies 作業 但這樣寫沒有正常取到 install 的 node_modules
   #   - install_dependencies
+  artifacts:
+    paths:
+      - package.json
+      - package-lock.json
   only:
     - main
     - merge_requests
