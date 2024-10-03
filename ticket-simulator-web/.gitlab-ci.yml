@@ -2,7 +2,7 @@ stages:
   - install
   - test
   - build
-  - deploy
+  # - deploy
 
 # 定義變數
 variables:
@@ -37,7 +37,7 @@ run_tests:
   image: node:16
   script:
     - cd ticket-simulator-web
-    - npm run test -- --watch=false --ci
+    - npm run test:unit
   only:
     - main
     - merge_requests
