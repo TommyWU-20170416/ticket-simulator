@@ -39,6 +39,8 @@ run_tests:
     - cd ticket-simulator-web
     - ls node_modules/.bin  # 列出所有可執行文件以確認 vitest 是否存在
     - npm run test:unit
+  dependencies:  # 使這個作業依賴於 install_dependencies 作業
+    - install_dependencies
   only:
     - main
     - merge_requests
