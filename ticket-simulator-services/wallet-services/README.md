@@ -1,4 +1,5 @@
 ### 使用 AB 工具測試
+
         - AB 語法 POST
         ```shell
         ab -l -n 1 -c 1 -p pay_test.txt -T application/json http://localhost:8561/wallets/pay
@@ -219,10 +220,11 @@ Time per request:       0.325 [ms] (mean, across all concurrent requests)
 ```
 
 ### 結論
+
 - 高寫入
-可以看出在高寫入的情境下，沒辦法發揮樂觀鎖的能力，因為樂觀鎖在更新時會有機會發生更新失敗，這樣會造成大量的重試，所以在高寫入的情境下，悲觀鎖的效能會比較好。
+  可以看出在高寫入的情境下，沒辦法發揮樂觀鎖的能力，因為樂觀鎖在更新時會有機會發生更新失敗，這樣會造成大量的重試，所以在高寫入的情境下，悲觀鎖的效能會比較好。
 - 高讀取
-在高讀取的情境下，樂觀鎖的效能會比較好，因為樂觀鎖在讀取時不會有任何的阻塞，所以在高讀取的情境下，樂觀鎖的效能會比較好。
+  在高讀取的情境下，樂觀鎖的效能會比較好，因為樂觀鎖在讀取時不會有任何的阻塞，所以在高讀取的情境下，樂觀鎖的效能會比較好。
 
 讀多寫少: 樂觀鎖
 讀少寫多: 悲觀鎖
@@ -230,4 +232,13 @@ Time per request:       0.325 [ms] (mean, across all concurrent requests)
 ## 分佈式鎖
 
 ## schedule 排程
+
 ### [Cron 表達式](https://youngff.github.io/MyHearthStone/spring%20framework/spring-util/spring-cron/)
+
+## 如果 wallet-services 有多個實例，Schedule 有可能重複執行
+
+> 可使用以下的方式保證只有一個實例執行
+
+1. Quartz
+2. spring-boot-starter-quartz
+3. ShedLock
