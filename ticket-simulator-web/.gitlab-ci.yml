@@ -57,16 +57,16 @@ build_frontend:
     - merge_requests
 
 # 部署應用
-deploy_frontend:
-  stage: deploy
-  image: node:16
-  script:
-    - echo "開始部署前端應用"
-    # 這裡根據你的部署方式進行配置，例如使用 rsync 或 scp 上傳到伺服器
-    # 例如：
-    # - rsync -avz ticket-simulator-web/dist/ user@yourserver:/path/to/frontend/
-  environment:
-    name: production
-    url: https://your-frontend-domain.com
-  only:
-    - main
+# deploy_frontend:
+#   stage: deploy
+#   image: node:16
+#   script:
+#     - echo "開始部署前端應用"
+#     # 這裡根據你的部署方式進行配置，例如使用 rsync 或 scp 上傳到伺服器
+#     # 例如：
+#     # - rsync -avz ticket-simulator-web/dist/ user@yourserver:/path/to/frontend/
+#   environment:
+#     name: production
+#     url: https://your-frontend-domain.com
+#   only:
+#     - main
