@@ -1,0 +1,72 @@
+stages:
+  - install
+  - test
+  - build
+  - deploy
+
+# 定義變數
+variables:
+  NODE_ENV: "production"
+
+# 快取依賴以加快構建速度
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - ticket-simulator-web/node_modules/
+
+# 安裝依賴
+install_dependencies:
+  stage: install
+  image: node:16
+  script:
+    - cd ticket-simulator-web
+    - npm install
+  cache:
+    paths:
+      - ticket-simulator-web/node_modules/
+  artifacts:
+    paths:
+      - ticket-simulator-web/node_modules/
+  only:
+    - main
+    - merge_requests
+
+# 運行測試
+run_tests:
+  stage: test
+  image: node:16
+  script:
+    - cd ticket-simulator-web
+    - npm run test -- --watch=false --ci
+  only:
+    - main
+    - merge_requests
+
+# 構建應用
+build_frontend:
+  stage: build
+  image: node:16
+  script:
+    - cd ticket-simulator-web
+    - npm run build
+  artifacts:
+    paths:
+      - ticket-simulator-web/dist/
+  only:
+    - main
+    - merge_requests
+
+# 部署應用
+deploy_frontend:
+  stage: deploy
+  image: node:16
+  script:
+    - echo "開始部署前端應用"
+    # 這裡根據你的部署方式進行配置，例如使用 rsync 或 scp 上傳到伺服器
+    # 例如：
+    # - rsync -avz ticket-simulator-web/dist/ user@yourserver:/path/to/frontend/
+  environment:
+    name: production
+    url: https://your-frontend-domain.com
+  only:
+    - main
