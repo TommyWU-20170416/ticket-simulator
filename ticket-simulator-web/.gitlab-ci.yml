@@ -20,11 +20,13 @@ install_dependencies:
   image: node:20
   script:
     - cd ticket-simulator-web
+    - npm install -g npm@8.19.1
     - npm ci
   artifacts:
     paths:
-      - package.json
-      - package-lock.json
+      - ticket-simulator-web/node_modules/
+      - ticket-simulator-web/package.json
+      - ticket-simulator-web/package-lock.json
 
   # cache:
   #   paths:
@@ -43,14 +45,13 @@ run_tests:
   script:
     - cd ticket-simulator-web
     - npm install -g npm@8.19.1
-    - npm ci
     - npm run test:unit
-  # dependencies:  # 使這個作業依賴於 install_dependencies 作業 但這樣寫沒有正常取到 install 的 node_modules
-  #   - install_dependencies
+  dependencies:
+    - install_dependencies
   artifacts:
     paths:
-      - package.json
-      - package-lock.json
+      - ticket-simulator-web/package.json
+      - ticket-simulator-web/package-lock.json
   only:
     - main
     - merge_requests
