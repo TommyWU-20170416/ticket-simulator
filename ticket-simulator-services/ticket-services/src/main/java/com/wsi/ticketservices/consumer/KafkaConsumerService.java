@@ -15,7 +15,7 @@ public class KafkaConsumerService {
     @Autowired
     private TicketService ticketService;
 
-    @KafkaListener(topics = "${kafka.topic.ticket_purchase.name}", groupId = "${spring.kafka.consumer.group-id}")
+//    @KafkaListener(topics = "${kafka.topic.ticket_purchase.name}", groupId = "${spring.kafka.consumer.group-id}")
     public void consume(String message) throws JsonProcessingException {
         TicketPurchaseRequest ticketPurchaseRequest = new ObjectMapper().readValue(message, TicketPurchaseRequest.class);
         BuyTicketResponse buyTicketResponse = ticketService.buyTicket(ticketPurchaseRequest);
