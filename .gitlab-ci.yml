@@ -1,0 +1,3 @@
+# 設定前端 .gitlab-ci.yml
+include:
+    - 'ticket-simulator-web/.gitlab-ci.yml'
