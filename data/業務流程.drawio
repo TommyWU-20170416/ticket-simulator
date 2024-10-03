@@ -1,0 +1,127 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.16">
+  <diagram name="第 1 页" id="jH3_CTAPR10g_iI8JuLV">
+    <mxGraphModel dx="989" dy="514" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-42" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="260" y="20" width="520" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-1" target="nv5IyBdoVDJpjVyae5QC-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-1" value="支付" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-2" target="nv5IyBdoVDJpjVyae5QC-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-2" value="檢查餘額" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="160" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-4" target="nv5IyBdoVDJpjVyae5QC-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-8" value="是" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nv5IyBdoVDJpjVyae5QC-7">
+          <mxGeometry x="-0.2359" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-4" target="nv5IyBdoVDJpjVyae5QC-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-11" value="否" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nv5IyBdoVDJpjVyae5QC-10">
+          <mxGeometry x="-0.0552" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-4" value="餘額足夠" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-6" value="扣款" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="40" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-9" value="跳轉到儲值畫面&lt;div&gt;新增一筆代扣款紀錄&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="160" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-14" target="nv5IyBdoVDJpjVyae5QC-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-14" value="轉帳" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="360" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-17" target="nv5IyBdoVDJpjVyae5QC-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-17" value="分期扣款" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="560" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-19" target="nv5IyBdoVDJpjVyae5QC-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-19" value="使用排程進行" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="560" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-23" target="nv5IyBdoVDJpjVyae5QC-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-23" value="檢查餘額" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="360" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-25" target="nv5IyBdoVDJpjVyae5QC-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-31" value="是" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nv5IyBdoVDJpjVyae5QC-28">
+          <mxGeometry x="-0.0506" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-25" target="nv5IyBdoVDJpjVyae5QC-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-32" value="否" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nv5IyBdoVDJpjVyae5QC-30">
+          <mxGeometry x="-0.0076" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-25" value="餘額足夠" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="340" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-27" value="進行轉帳" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="240" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-29" value="跳轉到儲值畫面" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="360" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-33" target="nv5IyBdoVDJpjVyae5QC-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-37" value="是" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nv5IyBdoVDJpjVyae5QC-36">
+          <mxGeometry x="0.0644" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nv5IyBdoVDJpjVyae5QC-33" target="nv5IyBdoVDJpjVyae5QC-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-40" value="否" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="nv5IyBdoVDJpjVyae5QC-39">
+          <mxGeometry x="0.0104" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-33" value="餘額足夠" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="540" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-35" value="進行轉帳" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="440" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-38" value="記提醒給顧客說要儲值" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="560" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv5IyBdoVDJpjVyae5QC-43" value="使用事務的方式包起來&lt;div&gt;不用擔心查完餘額被異動&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="605" y="40" width="150" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
