@@ -11,7 +11,7 @@ build_backend:
     - mvn clean package -DskipTests
   artifacts:
     paths:
-      - ticket-simulator-services/travel-services/target/travel-services.jar
+      - ticket-simulator-services/travel-services/target/travel-services-0.0.1-SNAPSHOT.jar.jar
   rules:
     - changes:
         - ticket-simulator-services/**/*
