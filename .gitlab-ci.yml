@@ -5,6 +5,7 @@ stages:
   # - build_frontend
   # - deploy_frontend
   - build_backend
+  - deploy_backend
   
 include:
     # - 'ticket-simulator-web/.gitlab-ci.yml'
