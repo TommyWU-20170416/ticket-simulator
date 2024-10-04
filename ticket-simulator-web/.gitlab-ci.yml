@@ -84,7 +84,7 @@ deploy_frontend:
     - chmod 600 ~/.ssh/id_rsa
     - ssh-keyscan ec2-98-84-135-86.compute-1.amazonaws.com >> ~/.ssh/known_hosts  # 將 EC2 加入 known_hosts
   script:
-    - rsync -avz --delete ticket-simulator-web/dist/ ec2-user@ec2-98-84-135-86.compute-1.amazonaws.com:/var/www/html/  # 替換為您的 EC2 公共 IP 或域名
+    - rsync -avz --delete ticket-simulator-web/dist/ ec2-user@ec2-98-84-135-86.compute-1.amazonaws.com:/usr/share/nginx/html/  # 替換為您的 EC2 公共 IP 或域名
   only:
     - main
   when: on_success
