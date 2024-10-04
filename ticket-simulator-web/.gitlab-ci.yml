@@ -9,7 +9,7 @@ variables:
     NODE_ENV: "development" # 只會包出 devDependencies
   # NODE_ENV: "production" # 只會包出 dependencies
 
-# 快取依賴以加快構建速度 緩存的 node_modules 不完整
+# 快取依賴以加快構建速度
 # cache:
 #   key: ${CI_COMMIT_REF_SLUG}
 #   paths:
