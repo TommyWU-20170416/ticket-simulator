@@ -5,7 +5,7 @@ stages:
 # 後端構建階段 - 僅構建 travel-services
 build_backend:
   stage: build_backend
-  image: maven:3.8.7-openjdk-11
+  image: maven:3.8.6-openjdk-11-slim
   script:
     - cd ticket-simulator-services/travel-services
     - mvn clean package -DskipTests
