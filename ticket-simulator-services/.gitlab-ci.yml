@@ -19,20 +19,18 @@ build_backend:
 # 部署後端 - 僅部署 travel-services
 deploy_backend:
   stage: deploy_backend
-  image: appleboy/ssh-agent:latest
+  image: alpine:latest
   before_script:
-    # 啟動 SSH Agent 並添加私鑰
-    - eval $(ssh-agent -s)
-    - echo "$EC2_SSH_KEY" | tr -d '\r' | ssh-add -
-    # 設置 SSH 配置
+    - apk add --no-cache openssh-client rsync  # 安裝 SSH 和 rsync
     - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - ssh-keyscan $EC2_HOST >> ~/.ssh/known_hosts
+    - echo "$EC2_SSH_KEY" | tr -d '\r' > ~/.ssh/id_rsa  # 使用 GitLab CI 變數
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan ec2-98-84-135-86.compute-1.amazonaws.com >> ~/.ssh/known_hosts  # 將 EC2 加入 known_hosts
   script:
     # 將 JAR 文件複製到 EC2 實例
-    - scp ticket-simulator-services/travel-services/target/travel-services.jar $EC2_USER@$EC2_HOST:/opt/ticket-simulator-services/travel-services/travel-services.jar
+    - scp ticket-simulator-services/travel-services/target/travel-services.jar ec2-user@ec2-98-84-135-86.compute-1.amazonaws.com:/opt/ticket-simulator-services/travel-services/travel-services.jar
     # 重新啟動 systemd 服務
-    - ssh $EC2_USER@$EC2_HOST "sudo systemctl restart travel-services"
+    - ssh ec2-user@ec2-98-84-135-86.compute-1.amazonaws.com "sudo systemctl restart travel-services"
   rules:
     - changes:
         - ticket-simulator-services/**/*
