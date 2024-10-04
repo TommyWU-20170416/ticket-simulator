@@ -1,9 +1,6 @@
 stages:
   - build_backend
-#  - deploy_backend
-
-variables:
-  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+  - deploy_backend
 
 # 後端構建階段 - 僅構建 travel-services
 build_backend:
@@ -11,27 +8,33 @@ build_backend:
   image: maven:3.8.5-jdk-8
   script:
     - cd ticket-simulator-services/travel-services
-    - mvn $MAVEN_CLI_OPTS clean package -DskipTests
+    - mvn clean package -DskipTests
   artifacts:
     paths:
       - ticket-simulator-services/travel-services/target/travel-services.jar
+  rules:
+    - changes:
+        - ticket-simulator-services/**/*
 
 # 部署後端 - 僅部署 travel-services
-#deploy_backend:
-#  stage: deploy_backend
-#  image: appleboy/ssh-agent:latest
-#  before_script:
-#    # 啟動 SSH Agent 並添加私鑰
-#    - eval $(ssh-agent -s)
-#    - echo "$EC2_SSH_KEY" | tr -d '\r' | ssh-add -
-#    # 設置 SSH 配置
-#    - mkdir -p ~/.ssh
-#    - chmod 700 ~/.ssh
-#    - ssh-keyscan $EC2_HOST >> ~/.ssh/known_hosts
-#  script:
-#    # 將 JAR 文件複製到 EC2 實例
-#    - scp ticket-simulator-services/travel-services/target/travel-services.jar $EC2_USER@$EC2_HOST:/opt/ticket-simulator-services/travel-services/travel-services.jar
-#    # 重新啟動 systemd 服務
-#    - ssh $EC2_USER@$EC2_HOST "sudo systemctl restart travel-services"
-#  only:
-#    - main
+deploy_backend:
+  stage: deploy_backend
+  image: appleboy/ssh-agent:latest
+  before_script:
+    # 啟動 SSH Agent 並添加私鑰
+    - eval $(ssh-agent -s)
+    - echo "$EC2_SSH_KEY" | tr -d '\r' | ssh-add -
+    # 設置 SSH 配置
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan $EC2_HOST >> ~/.ssh/known_hosts
+  script:
+    # 將 JAR 文件複製到 EC2 實例
+    - scp ticket-simulator-services/travel-services/target/travel-services.jar $EC2_USER@$EC2_HOST:/opt/ticket-simulator-services/travel-services/travel-services.jar
+    # 重新啟動 systemd 服務
+    - ssh $EC2_USER@$EC2_HOST "sudo systemctl restart travel-services"
+  only:
+    - main
+  rules:
+    - changes:
+        - ticket-simulator-services/**/*
