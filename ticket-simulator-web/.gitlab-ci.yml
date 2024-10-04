@@ -1,8 +1,8 @@
 stages:
-  - install
-  - test
-  - build
-  - deploy
+  - install_frontend
+  - test_frontend
+  - build_frontend
+  - deploy_frontend
 
 # 定義變數
 variables:
@@ -16,8 +16,8 @@ variables:
 #     - ticket-simulator-web/node_modules/
 
 # 安裝依賴
-install_dependencies:
-  stage: install
+install_frontend:
+  stage: install_frontend
   image: node:20
   script:
     - echo "=== 開始安裝依賴 ==="
@@ -43,8 +43,8 @@ install_dependencies:
     # 這樣可以在合併之前對 a 分支的代碼進行測試和驗證，確保其不會引入錯誤或破壞現有功能。
 
 # 運行測試
-run_tests:
-  stage: test
+test_frontend:
+  stage: test_frontend
   image: node:20
   script:
     - cd ticket-simulator-web
@@ -58,7 +58,7 @@ run_tests:
 
 # 構建應用
 build_frontend:
-  stage: build
+  stage: build_frontend
   image: node:20
   script:
     - cd ticket-simulator-web
@@ -75,7 +75,7 @@ build_frontend:
 
 # 部署應用
 deploy_frontend:
-  stage: deploy
+  stage: deploy_frontend
   image: alpine:latest
   before_script:
     - apk add --no-cache openssh-client rsync  # 安裝 SSH 和 rsync
