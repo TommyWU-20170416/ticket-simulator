@@ -33,8 +33,6 @@ deploy_backend:
     - scp ticket-simulator-services/travel-services/target/travel-services.jar $EC2_USER@$EC2_HOST:/opt/ticket-simulator-services/travel-services/travel-services.jar
     # 重新啟動 systemd 服務
     - ssh $EC2_USER@$EC2_HOST "sudo systemctl restart travel-services"
-  only:
-    - main
   rules:
     - changes:
         - ticket-simulator-services/**/*
