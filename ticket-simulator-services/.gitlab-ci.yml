@@ -11,7 +11,7 @@ build_backend:
     - mvn clean package -DskipTests
   artifacts:
     paths:
-      - ticket-simulator-services/travel-services/target/travel-services-0.0.1-SNAPSHOT.jar.jar
+      - ticket-simulator-services/travel-services/target/travel-services-0.0.1-SNAPSHOT.jar
   rules:
     - changes:
         - ticket-simulator-services/**/*
@@ -28,7 +28,7 @@ deploy_backend:
     - ssh-keyscan ec2-98-84-135-86.compute-1.amazonaws.com >> ~/.ssh/known_hosts  # 將 EC2 加入 known_hosts
   script:
     # 將 JAR 文件複製到 EC2 實例
-    - scp ticket-simulator-services/travel-services/target/travel-services.jar ec2-user@ec2-98-84-135-86.compute-1.amazonaws.com:/opt/ticket-simulator-services/travel-services/travel-services.jar
+    - scp ticket-simulator-services/travel-services/target/travel-services-0.0.1-SNAPSHOT.jar ec2-user@ec2-98-84-135-86.compute-1.amazonaws.com:/opt/ticket-simulator-services/travel-services/travel-services-0.0.1-SNAPSHOT.jar
     # 重新啟動 systemd 服務
     - ssh ec2-user@ec2-98-84-135-86.compute-1.amazonaws.com "sudo systemctl restart travel-services"
   rules:
