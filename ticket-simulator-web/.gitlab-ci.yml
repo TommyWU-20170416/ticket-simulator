@@ -51,7 +51,7 @@ test_frontend:
     - npm install -g npm@8.19.1
     - npm run test:unit
   dependencies:
-    - install_dependencies
+    - install_frontend
   only:
     - main
     - merge_requests
@@ -68,7 +68,7 @@ build_frontend:
     paths:
       - ticket-simulator-web/dist/
   dependencies:
-    - install_dependencies
+    - install_frontend
   only:
     - main
     - merge_requests
