@@ -14,6 +14,15 @@
         <!-- 部分由父 pom.xml 去引用，若未來有各自專案才會用到就各別引入 -->
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <spring.profiles.active>prod</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
