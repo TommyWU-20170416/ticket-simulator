@@ -25,6 +25,18 @@
 
     <build>
         <plugins>
+            <!-- 明確指定 Java 的源碼版本和編譯的目標版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source> <!-- 指定 Java 源碼版本 -->
+                    <target>11</target> <!-- 指定編譯字節碼版本 -->
+                </configuration>
+            </plugin>
+
+            <!-- 用於打包 Spring Boot 應用 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
