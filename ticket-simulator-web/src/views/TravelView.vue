@@ -43,7 +43,7 @@
 <script>
 import { ref } from 'vue'
 import { useStationStore } from '@/stores/station'
-import api from '@/api'
+import travelServices from '@/api'
 
 export default {
   name: 'TravelView',
@@ -67,7 +67,7 @@ export default {
 
     const fetchRestaurants = async (stationId) => {
       try {
-        const response = await api.get('/restaurants/' + stationId)
+        const response = await travelServices.get('/restaurants/' + stationId)
         paginatedRestaurants.value = response.data
       } catch (error) {
         console.error('Error fetching restaurants:', error)
@@ -83,7 +83,7 @@ export default {
 
     const fetchAttractions = async (stationId) => {
       try {
-        const response = await api.get('/attractions/' + stationId)
+        const response = await travelServices.get('/attractions/' + stationId)
         paginatedAttractions.value = response.data
       } catch (error) {
         console.error('Error fetching restaurants:', error)
