@@ -18,7 +18,7 @@ variables:
 # 安裝依賴
 install_frontend:
   stage: install_frontend
-  image: node:20
+  image: node:20-alpine
   script:
     - echo "=== 開始安裝依賴 ==="
     - cd ticket-simulator-web
@@ -45,7 +45,7 @@ install_frontend:
 # 運行測試
 test_frontend:
   stage: test_frontend
-  image: node:20
+  image: node:20-alpine
   script:
     - cd ticket-simulator-web
     - npm install -g npm@8.19.1
@@ -59,7 +59,7 @@ test_frontend:
 # 構建應用
 build_frontend:
   stage: build_frontend
-  image: node:20
+  image: node:20-alpine
   script:
     - cd ticket-simulator-web
     - npm install -g npm@8.19.1
