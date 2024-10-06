@@ -1,12 +1,12 @@
 # 設定主 .gitlab-ci.yml
 stages:
-  # - install_frontend
-  # - test_frontend
-  # - build_frontend
-  # - deploy_frontend
+  - install_frontend
+  - test_frontend
+  - build_frontend
+  - deploy_frontend
   - build_backend
   - deploy_backend
   
 include:
-    # - 'ticket-simulator-web/.gitlab-ci.yml'
+    - 'ticket-simulator-web/.gitlab-ci.yml'
     - 'ticket-simulator-services/.gitlab-ci.yml'
